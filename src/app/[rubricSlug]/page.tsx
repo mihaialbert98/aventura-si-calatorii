@@ -19,12 +19,12 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const rubrics = getRubrics();
+  const rubrics = await getRubrics();
   return rubrics.map((r) => ({ rubricSlug: r.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const rubric = getRubricBySlug(params.rubricSlug);
+  const rubric = await getRubricBySlug(params.rubricSlug);
   if (!rubric) return { title: 'Pagina negăsită' };
   return {
     title: `${rubric.name} — Aventură și Călătorii`,
@@ -32,13 +32,13 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function RubricPage({ params }: PageProps) {
-  const rubric = getRubricBySlug(params.rubricSlug);
+export default async function RubricPage({ params }: PageProps) {
+  const rubric = await getRubricBySlug(params.rubricSlug);
   if (!rubric) notFound();
 
-  const allTrips = getTrips();
+  const allTrips = await getTrips();
   const rubricTrips = allTrips.filter((t) => t.rubricSlug === params.rubricSlug);
-  const contact = getContact();
+  const contact = await getContact();
   const Icon = iconMap[rubric.icon] || Bus;
 
   return (

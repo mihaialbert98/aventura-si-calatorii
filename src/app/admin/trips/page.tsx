@@ -4,9 +4,9 @@ import { Plus, Star, Pencil, ExternalLink } from 'lucide-react';
 import DeleteTripButton from './DeleteTripButton';
 import styles from './AdminTrips.module.scss';
 
-export default function AdminTripsPage() {
-  const trips = getTrips();
-  const rubrics = getRubrics();
+export default async function AdminTripsPage() {
+  const trips = await getTrips();
+  const rubrics = await getRubrics();
 
   return (
     <div className={styles.page}>

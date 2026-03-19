@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRubrics, saveRubrics } from '@/lib/data';
+import { getRubricById, saveRubric, deleteRubric } from '@/lib/data';
 import { isAuthenticated } from '@/lib/auth';
 
 interface RouteParams {
@@ -8,8 +8,7 @@ interface RouteParams {
 
 export async function GET(_req: NextRequest, { params }: RouteParams) {
   try {
-    const rubrics = getRubrics();
-    const rubric = rubrics.find((r) => r.id === params.id);
+    const rubric = await getRubricById(params.id);
     if (!rubric) {
       return NextResponse.json({ error: 'Rubrica nu a fost găsită' }, { status: 404 });
     }
@@ -26,19 +25,17 @@ export async function PATCH(req: NextRequest, { params }: RouteParams) {
 
   try {
     const body = await req.json();
-    const rubrics = getRubrics();
-    const idx = rubrics.findIndex((r) => r.id === params.id);
+    const existing = await getRubricById(params.id);
 
-    if (idx === -1) {
+    if (!existing) {
       return NextResponse.json({ error: 'Rubrica nu a fost găsită' }, { status: 404 });
     }
 
-    const updated = { ...rubrics[idx], ...body };
-    rubrics[idx] = updated;
-    saveRubrics(rubrics);
-
+    const updated = { ...existing, ...body };
+    await saveRubric(updated);
     return NextResponse.json(updated);
-  } catch {
+  } catch (err) {
+    console.error(err);
     return NextResponse.json({ error: 'Eroare la actualizare' }, { status: 500 });
   }
 }
@@ -49,14 +46,11 @@ export async function DELETE(_req: NextRequest, { params }: RouteParams) {
   }
 
   try {
-    const rubrics = getRubrics();
-    const filtered = rubrics.filter((r) => r.id !== params.id);
-
-    if (filtered.length === rubrics.length) {
+    const existing = await getRubricById(params.id);
+    if (!existing) {
       return NextResponse.json({ error: 'Rubrica nu a fost găsită' }, { status: 404 });
     }
-
-    saveRubrics(filtered);
+    await deleteRubric(params.id);
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: 'Eroare la ștergere' }, { status: 500 });

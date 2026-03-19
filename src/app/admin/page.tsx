@@ -3,9 +3,9 @@ import { getTrips, getRubrics } from '@/lib/data';
 import { Map, Tag, Star, Plus, ArrowRight, TrendingUp } from 'lucide-react';
 import styles from './AdminDashboard.module.scss';
 
-export default function AdminDashboard() {
-  const trips = getTrips();
-  const rubrics = getRubrics();
+export default async function AdminDashboard() {
+  const trips = await getTrips();
+  const rubrics = await getRubrics();
   const featured = trips.filter((t) => t.featured);
   const recentTrips = [...trips].sort(
     (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()

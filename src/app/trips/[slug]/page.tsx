@@ -24,12 +24,12 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const trips = getTrips();
+  const trips = await getTrips();
   return trips.map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const trip = getTripBySlug(params.slug);
+  const trip = await getTripBySlug(params.slug);
   if (!trip) return { title: 'Excursie negăsită' };
   return {
     title: `${trip.title} — Aventură și Călătorii`,
@@ -37,12 +37,12 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function TripDetailPage({ params }: PageProps) {
-  const trip = getTripBySlug(params.slug);
+export default async function TripDetailPage({ params }: PageProps) {
+  const trip = await getTripBySlug(params.slug);
   if (!trip) notFound();
 
-  const rubric = getRubricBySlug(trip.rubricSlug);
-  const contact = getContact();
+  const rubric = await getRubricBySlug(trip.rubricSlug);
+  const contact = await getContact();
 
   const formattedDate = new Date(trip.nextDeparture).toLocaleDateString('ro-RO', {
     day: 'numeric',
@@ -98,7 +98,6 @@ export default function TripDetailPage({ params }: PageProps) {
             <div className={styles.layout}>
               {/* Left column */}
               <div className={styles.leftCol}>
-                {/* Description */}
                 <AnimatedSection>
                   <div className={styles.card}>
                     <h2 className={styles.cardTitle}>Despre această excursie</h2>
@@ -106,7 +105,6 @@ export default function TripDetailPage({ params }: PageProps) {
                   </div>
                 </AnimatedSection>
 
-                {/* Details grid */}
                 <AnimatedSection delay={0.1}>
                   <div className={styles.card}>
                     <h2 className={styles.cardTitle}>Detalii excursie</h2>
@@ -143,7 +141,6 @@ export default function TripDetailPage({ params }: PageProps) {
                   </div>
                 </AnimatedSection>
 
-                {/* Includes / Excludes */}
                 <AnimatedSection delay={0.15}>
                   <div className={styles.card}>
                     <div className={styles.includesGrid}>
@@ -179,7 +176,6 @@ export default function TripDetailPage({ params }: PageProps) {
                   </div>
                 </AnimatedSection>
 
-                {/* Itinerary */}
                 {trip.itinerary.length > 0 && (
                   <AnimatedSection delay={0.2}>
                     <div className={styles.card}>
@@ -200,7 +196,6 @@ export default function TripDetailPage({ params }: PageProps) {
                   </AnimatedSection>
                 )}
 
-                {/* Gallery */}
                 {trip.images.length > 1 && (
                   <AnimatedSection delay={0.25}>
                     <div className={styles.card}>
@@ -272,7 +267,6 @@ export default function TripDetailPage({ params }: PageProps) {
                   </p>
                 </div>
 
-                {/* Rubric card */}
                 {rubric && (
                   <div className={styles.rubricCard}>
                     <p className={styles.rubricCardLabel}>Categorie</p>

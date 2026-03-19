@@ -11,9 +11,9 @@ import ContactForm from './ContactForm';
 import styles from './HomePage.module.scss';
 
 export default async function HomePage() {
-  const rubrics = getRubrics();
-  const allTrips = getTrips();
-  const contact = getContact();
+  const rubrics = await getRubrics();
+  const allTrips = await getTrips();
+  const contact = await getContact();
   const featuredTrips = allTrips.filter((t) => t.featured);
 
   return (

@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRubrics, saveRubrics } from '@/lib/data';
+import { getRubrics, saveRubric } from '@/lib/data';
 import { isAuthenticated } from '@/lib/auth';
 import { v4 as uuidv4 } from 'uuid';
 import { Rubric } from '@/types';
 
 export async function GET() {
   try {
-    const rubrics = getRubrics();
+    const rubrics = await getRubrics();
     return NextResponse.json(rubrics);
   } catch {
     return NextResponse.json({ error: 'Eroare la citire' }, { status: 500 });
@@ -31,22 +31,20 @@ export async function POST(req: NextRequest) {
       .replace(/-+/g, '-');
 
     const newRubric: Rubric = {
-      id: uuidv4(),
-      name: body.name,
+      id:          uuidv4(),
+      name:        body.name,
       slug,
       description: body.description || '',
-      icon: body.icon || 'Star',
-      color: body.color || '#0f2b46',
-      image: body.image || '',
-      createdAt: new Date().toISOString(),
+      icon:        body.icon || 'Star',
+      color:       body.color || '#0f2b46',
+      image:       body.image || '',
+      createdAt:   new Date().toISOString(),
     };
 
-    const rubrics = getRubrics();
-    rubrics.push(newRubric);
-    saveRubrics(rubrics);
-
+    await saveRubric(newRubric);
     return NextResponse.json(newRubric, { status: 201 });
-  } catch {
+  } catch (err) {
+    console.error(err);
     return NextResponse.json({ error: 'Eroare la creare' }, { status: 500 });
   }
 }

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getTrips, saveTrips, getRubrics } from '@/lib/data';
+import { getTripById, saveTrip, deleteTrip, getRubricById } from '@/lib/data';
 import { isAuthenticated } from '@/lib/auth';
 
 interface RouteParams {
@@ -8,8 +8,7 @@ interface RouteParams {
 
 export async function GET(_req: NextRequest, { params }: RouteParams) {
   try {
-    const trips = getTrips();
-    const trip = trips.find((t) => t.id === params.id);
+    const trip = await getTripById(params.id);
     if (!trip) {
       return NextResponse.json({ error: 'Excursia nu a fost găsită' }, { status: 404 });
     }
@@ -26,34 +25,29 @@ export async function PATCH(req: NextRequest, { params }: RouteParams) {
 
   try {
     const body = await req.json();
-    const trips = getTrips();
-    const idx = trips.findIndex((t) => t.id === params.id);
+    const existing = await getTripById(params.id);
 
-    if (idx === -1) {
+    if (!existing) {
       return NextResponse.json({ error: 'Excursia nu a fost găsită' }, { status: 404 });
     }
 
-    const rubrics = getRubrics();
-    const rubric = rubrics.find((r) => r.id === body.rubricId);
+    const rubric = body.rubricId ? await getRubricById(body.rubricId) : null;
 
     const updated = {
-      ...trips[idx],
+      ...existing,
       ...body,
-      price: body.price !== undefined ? Number(body.price) : trips[idx].price,
-      rubricSlug: rubric?.slug || trips[idx].rubricSlug,
-      nextDeparture: body.nextDeparture
-        ? new Date(body.nextDeparture).toISOString()
-        : trips[idx].nextDeparture,
-      includes: Array.isArray(body.includes) ? body.includes : trips[idx].includes,
-      excludes: Array.isArray(body.excludes) ? body.excludes : trips[idx].excludes,
-      images: Array.isArray(body.images) ? body.images : trips[idx].images,
+      price:         body.price !== undefined ? Number(body.price) : existing.price,
+      rubricSlug:    rubric?.slug ?? existing.rubricSlug,
+      nextDeparture: body.nextDeparture ? new Date(body.nextDeparture).toISOString() : existing.nextDeparture,
+      includes:      Array.isArray(body.includes) ? body.includes : existing.includes,
+      excludes:      Array.isArray(body.excludes) ? body.excludes : existing.excludes,
+      images:        Array.isArray(body.images) ? body.images : existing.images,
     };
 
-    trips[idx] = updated;
-    saveTrips(trips);
-
+    await saveTrip(updated);
     return NextResponse.json(updated);
-  } catch {
+  } catch (err) {
+    console.error(err);
     return NextResponse.json({ error: 'Eroare la actualizare' }, { status: 500 });
   }
 }
@@ -64,14 +58,11 @@ export async function DELETE(_req: NextRequest, { params }: RouteParams) {
   }
 
   try {
-    const trips = getTrips();
-    const filtered = trips.filter((t) => t.id !== params.id);
-
-    if (filtered.length === trips.length) {
+    const existing = await getTripById(params.id);
+    if (!existing) {
       return NextResponse.json({ error: 'Excursia nu a fost găsită' }, { status: 404 });
     }
-
-    saveTrips(filtered);
+    await deleteTrip(params.id);
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: 'Eroare la ștergere' }, { status: 500 });
