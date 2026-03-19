@@ -1,20 +1,20 @@
 // ============================================================
 // DESIGN SYSTEM — Aventură și Călătorii
-// Palette: Deep Forest × Warm Gold × Cream
+// Palette: Deep Forest × Bright Green × Cream
 // ============================================================
 
 // Core Colors
 $primary:           #0d1f17;   // Near-black forest — hero overlay, footer, navbars
 $primary-light:     #1a3d2a;   // Dark forest — dark section backgrounds
-$secondary:         #c9a96e;   // Warm gold — primary CTA, featured, active states
-$secondary-light:   #ddc08a;   // Light gold — hover states
-$secondary-dark:    #a8844a;   // Deep gold — difficulty badges
-$accent:            #2d6b47;   // Forest green — icons, secondary highlights
-$accent-light:      #3d8a5c;   // Lighter forest green — hover
+$secondary:         #39b54a;   // Bright green — primary CTA, featured, active states
+$secondary-light:   #5dcb6b;   // Light green — hover states
+$secondary-dark:    #1d6b26;   // Deep green — difficulty badges, pressed
+$accent:            #1d6b26;   // Deep green — icons, secondary highlights
+$accent-light:      #2d8a36;   // Mid green — hover
 
 // Background & Surface
-$background:        #f5f0e8;   // Warm cream — primary light background
-$cream-dark:        #ede7da;   // Slightly darker cream
+$background:        #f4f7f4;   // Soft green-tinted white — primary light background
+$cream-dark:        #e6ede6;   // Slightly darker tinted bg
 $surface:           #ffffff;   // Pure white — cards, forms
 
 // Text
@@ -35,7 +35,7 @@ $shadow-sm:  0 1px 4px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
 $shadow-md:  0 4px 20px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05);
 $shadow-lg:  0 12px 48px rgba(0,0,0,0.13), 0 4px 16px rgba(0,0,0,0.07);
 $shadow-xl:  0 24px 72px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.09);
-$shadow-gold: 0 8px 28px rgba(201,169,110,0.38);
+$shadow-green: 0 8px 28px rgba(57,181,74,0.32);
 
 // Border radius
 $radius-sm:   6px;
