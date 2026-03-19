@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "Excursii Școlare",
+    "slug": "excursii-scolare",
+    "description": "Excursii educative și de aventură pentru elevi și studenți, cu ghizi specializați și programe adaptate vârstei.",
+    "icon": "GraduationCap",
+    "color": "#1a9e6e",
+    "image": "https://images.unsplash.com/photo-1530099486328-e021101a494a?w=800",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "Excursii Seniori",
+    "slug": "excursii-seniori",
+    "description": "Tururi relaxante și culturale pentru seniori, cu confort maxim și ritmul adaptat fiecărui grup.",
+    "icon": "Heart",
+    "color": "#e8923a",
+    "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "name": "Închiriere Autocare",
+    "slug": "inchiriere-autocare",
+    "description": "Autocare moderne pentru transport grup, cu șoferi profesioniști și confort premium pe orice rută.",
+    "icon": "Bus",
+    "color": "#0f2b46",
+    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  }
+]

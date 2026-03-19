@@ -1,0 +1,221 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: v.$background;
+}
+
+// Sidebar
+.sidebar {
+  width: 260px;
+  background: v.$primary;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 100;
+
+  @include m.respond-to(lg) {
+    width: 72px;
+  }
+}
+
+.sidebarHeader {
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(white, 0.08);
+}
+
+.sidebarLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+
+  svg {
+    color: v.$secondary;
+    flex-shrink: 0;
+  }
+
+  @include m.respond-to(lg) {
+    justify-content: center;
+
+    div {
+      display: none;
+    }
+  }
+}
+
+.sidebarLogoMain {
+  display: block;
+  font-family: v.$font-heading;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+.sidebarLogoSub {
+  display: block;
+  font-size: 11px;
+  color: rgba(white, 0.45);
+  margin-top: 1px;
+}
+
+// Nav
+.sidebarNav {
+  flex: 1;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navSection {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(white, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 8px;
+  margin-bottom: 8px;
+  margin-top: 4px;
+
+  @include m.respond-to(lg) {
+    display: none;
+  }
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: v.$radius-md;
+  color: rgba(white, 0.65);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all v.$transition-fast;
+  position: relative;
+
+  &:hover {
+    background: rgba(white, 0.08);
+    color: white;
+  }
+
+  @include m.respond-to(lg) {
+    justify-content: center;
+    padding: 14px;
+
+    span {
+      display: none;
+    }
+  }
+}
+
+.navActive {
+  background: rgba(v.$secondary, 0.15);
+  color: white;
+  border: 1px solid rgba(v.$secondary, 0.25);
+
+  svg:first-child {
+    color: v.$secondary;
+  }
+}
+
+.navChevron {
+  margin-left: auto;
+  color: rgba(white, 0.4);
+
+  @include m.respond-to(lg) {
+    display: none;
+  }
+}
+
+// Footer
+.sidebarFooter {
+  padding: 16px 12px 20px;
+  border-top: 1px solid rgba(white, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.viewSiteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: v.$radius-md;
+  background: rgba(white, 0.06);
+  color: rgba(white, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all v.$transition-fast;
+
+  &:hover {
+    background: rgba(white, 0.12);
+    color: white;
+  }
+
+  @include m.respond-to(lg) {
+    font-size: 0;
+    padding: 12px;
+  }
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: v.$radius-md;
+  background: none;
+  color: rgba(white, 0.5);
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: all v.$transition-fast;
+
+  &:hover {
+    background: rgba(#e53e3e, 0.15);
+    color: #fc8181;
+  }
+
+  @include m.respond-to(lg) {
+    span {
+      display: none;
+    }
+  }
+}
+
+// Main content
+.main {
+  flex: 1;
+  margin-left: 260px;
+  min-height: 100vh;
+  background: v.$background;
+
+  @include m.respond-to(lg) {
+    margin-left: 72px;
+  }
+}
+
+.mainInner {
+  padding: 32px;
+  max-width: 1200px;
+
+  @include m.respond-to(md) {
+    padding: 20px;
+  }
+}

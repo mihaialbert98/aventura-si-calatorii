@@ -1,0 +1,309 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pageTitle {
+  font-family: v.$font-heading;
+  font-size: 30px;
+  font-weight: 700;
+  color: v.$text-primary;
+  margin-bottom: 4px;
+}
+
+.pageSubtitle {
+  font-size: 15px;
+  color: v.$text-secondary;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: v.$secondary;
+  color: white;
+  border-radius: v.$radius-full;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all v.$transition-normal;
+
+  &:hover {
+    background: v.$secondary-light;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(v.$secondary, 0.3);
+  }
+}
+
+// Stats
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-to(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: white;
+  border-radius: v.$radius-lg;
+  border: 1px solid v.$border;
+  box-shadow: v.$shadow-sm;
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: v.$radius-md;
+  flex-shrink: 0;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-family: v.$font-heading;
+  font-size: 32px;
+  font-weight: 700;
+  color: v.$text-primary;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: v.$text-secondary;
+  margin-top: 4px;
+}
+
+// Quick Actions
+.quickActions {
+  background: white;
+  border-radius: v.$radius-lg;
+  padding: 28px;
+  border: 1px solid v.$border;
+}
+
+.sectionTitle {
+  font-family: v.$font-heading;
+  font-size: 18px;
+  font-weight: 700;
+  color: v.$text-primary;
+  margin-bottom: 16px;
+}
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  @include m.respond-to(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.actionCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: v.$background;
+  border: 1px solid v.$border;
+  border-radius: v.$radius-md;
+  font-size: 14px;
+  font-weight: 600;
+  color: v.$text-primary;
+  text-decoration: none;
+  transition: all v.$transition-fast;
+
+  svg {
+    color: v.$secondary;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: rgba(v.$secondary, 0.06);
+    border-color: rgba(v.$secondary, 0.3);
+    transform: translateX(4px);
+  }
+}
+
+.actionArrow {
+  margin-left: auto;
+  color: v.$text-muted;
+}
+
+// Table Section
+.tableSection {
+  background: white;
+  border-radius: v.$radius-lg;
+  border: 1px solid v.$border;
+  overflow: hidden;
+}
+
+.tableSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 0;
+}
+
+.viewAll {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: v.$secondary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: v.$text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: v.$background;
+    border-bottom: 1px solid v.$border;
+  }
+
+  td {
+    padding: 16px 20px;
+    font-size: 14px;
+    color: v.$text-secondary;
+    border-bottom: 1px solid v.$border;
+    vertical-align: middle;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background: rgba(v.$secondary, 0.02);
+  }
+}
+
+.tripName {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  span:first-child {
+    font-weight: 600;
+    color: v.$text-primary;
+  }
+}
+
+.tripDest {
+  font-size: 12px !important;
+  color: v.$text-muted !important;
+}
+
+.rubricChip {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: v.$radius-full;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.priceCell {
+  font-weight: 600;
+  color: v.$secondary !important;
+}
+
+.featuredYes {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: v.$accent;
+  background: rgba(v.$accent, 0.1);
+  padding: 4px 10px;
+  border-radius: v.$radius-full;
+}
+
+.featuredNo {
+  font-size: 12px;
+  color: v.$text-muted;
+}
+
+.rowActions {
+  display: flex;
+  gap: 8px;
+}
+
+.editBtn {
+  padding: 6px 14px;
+  background: rgba(v.$secondary, 0.1);
+  color: darken(v.$secondary, 10%);
+  border-radius: v.$radius-sm;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background v.$transition-fast;
+
+  &:hover {
+    background: rgba(v.$secondary, 0.2);
+  }
+}
+
+.viewBtn {
+  padding: 6px 14px;
+  background: rgba(v.$primary, 0.07);
+  color: v.$primary;
+  border-radius: v.$radius-sm;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background v.$transition-fast;
+
+  &:hover {
+    background: rgba(v.$primary, 0.14);
+  }
+}

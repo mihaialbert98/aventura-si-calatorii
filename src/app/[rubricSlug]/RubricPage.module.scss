@@ -1,0 +1,198 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.hero {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+
+  @include m.respond-to(md) {
+    height: 420px;
+  }
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  @include m.gradient-overlay;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  @include m.container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 80px;
+  gap: 16px;
+}
+
+.heroIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: v.$radius-lg;
+  border: 1px solid transparent;
+  backdrop-filter: blur(8px);
+  margin-bottom: 8px;
+}
+
+.heroTitle {
+  font-family: v.$font-heading;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.15;
+}
+
+.heroDesc {
+  font-size: 18px;
+  color: rgba(white, 0.82);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.heroBadge {
+  display: inline-flex;
+  padding: 8px 20px;
+  background: rgba(v.$secondary, 0.2);
+  border: 1px solid rgba(v.$secondary, 0.4);
+  border-radius: v.$radius-full;
+  font-size: 14px;
+  font-weight: 600;
+  color: v.$secondary-light;
+  margin-top: 8px;
+}
+
+// Trips Section
+.tripsSection {
+  padding: 80px 0 100px;
+  background: v.$background;
+}
+
+.container {
+  @include m.container;
+}
+
+.sectionHeader {
+  margin-bottom: 48px;
+  max-width: 700px;
+}
+
+.sectionLine {
+  width: 48px;
+  height: 4px;
+  background: v.$secondary;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-family: v.$font-heading;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  color: v.$text-primary;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: v.$text-secondary;
+  line-height: 1.7;
+}
+
+.tripsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-to(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  gap: 16px;
+  color: v.$text-muted;
+
+  h3 {
+    font-family: v.$font-heading;
+    font-size: 24px;
+    color: v.$text-secondary;
+  }
+
+  p {
+    font-size: 16px;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+}
+
+// Info Banner
+.infoBanner {
+  padding: 60px 0;
+  background: v.$primary;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-to(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 24px 16px;
+}
+
+.infoIcon {
+  font-size: 36px;
+}
+
+.infoItem h4 {
+  font-family: v.$font-heading;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+}
+
+.infoItem p {
+  font-size: 14px;
+  color: rgba(white, 0.65);
+  line-height: 1.6;
+}

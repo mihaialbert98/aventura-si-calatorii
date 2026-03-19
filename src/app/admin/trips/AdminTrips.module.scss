@@ -1,0 +1,202 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pageTitle {
+  font-family: v.$font-heading;
+  font-size: 28px;
+  font-weight: 700;
+  color: v.$text-primary;
+  margin-bottom: 4px;
+}
+
+.pageSubtitle {
+  font-size: 14px;
+  color: v.$text-secondary;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: v.$secondary;
+  color: white;
+  border-radius: v.$radius-full;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all v.$transition-normal;
+
+  &:hover {
+    background: v.$secondary-light;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(v.$secondary, 0.3);
+  }
+}
+
+.tableCard {
+  background: white;
+  border-radius: v.$radius-lg;
+  border: 1px solid v.$border;
+  overflow: hidden;
+  box-shadow: v.$shadow-sm;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    padding: 13px 20px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: v.$text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    background: v.$background;
+    border-bottom: 1px solid v.$border;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 15px 20px;
+    font-size: 14px;
+    color: v.$text-secondary;
+    border-bottom: 1px solid v.$border;
+    vertical-align: middle;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background: rgba(v.$secondary, 0.02);
+  }
+}
+
+.tripCell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tripTitle {
+  font-weight: 600;
+  color: v.$text-primary;
+  font-size: 14px;
+}
+
+.tripSlug {
+  font-size: 12px;
+  color: v.$text-muted;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.rubricChip {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: v.$radius-full;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.priceCell {
+  font-weight: 700;
+  color: v.$secondary !important;
+  white-space: nowrap;
+}
+
+.destCell {
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.featuredYes {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: v.$accent;
+  background: rgba(v.$accent, 0.1);
+  padding: 4px 10px;
+  border-radius: v.$radius-full;
+}
+
+.featuredNo {
+  font-size: 12px;
+  color: v.$text-muted;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+%icon-btn-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: v.$radius-sm;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all v.$transition-fast;
+  background: v.$background;
+}
+
+.iconBtn {
+  @extend %icon-btn-base;
+  color: v.$text-secondary;
+
+  &:hover {
+    background: rgba(v.$secondary, 0.12);
+    color: v.$secondary;
+  }
+}
+
+.iconBtnView {
+  @extend %icon-btn-base;
+  color: v.$text-secondary;
+
+  &:hover {
+    background: rgba(v.$primary, 0.1);
+    color: v.$primary;
+  }
+}
+
+.iconBtnDelete {
+  @extend %icon-btn-base;
+  color: v.$text-muted;
+
+  &:hover {
+    background: rgba(#e53e3e, 0.1);
+    color: #e53e3e;
+  }
+}

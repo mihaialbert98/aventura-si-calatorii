@@ -1,0 +1,6 @@
+@use '../../styles/variables' as v;
+
+.wrapper {
+  // Pass-through wrapper — styles come from parent via className
+  width: 100%;
+}

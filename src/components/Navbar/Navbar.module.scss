@@ -1,0 +1,279 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background v.$transition-normal, box-shadow v.$transition-normal;
+}
+
+.container {
+  @include m.container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  gap: 24px;
+}
+
+// ─── Transparent state (over dark hero) ──────────────────────────────────────
+.transparent {
+  background: rgba(v.$primary, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(white, 0.06);
+
+  .logoMain  { color: white; }
+  .logoSub   { color: rgba(white, 0.48); }
+
+  .navLink {
+    color: rgba(white, 0.78);
+    &:hover          { color: white; }
+    &.active         { color: v.$secondary; }
+    &.active::after  { background: v.$secondary; transform: scaleX(1); }
+    &:hover::after   { background: rgba(white, 0.4); transform: scaleX(1); }
+  }
+
+  .phoneLink {
+    color: rgba(white, 0.7);
+    &:hover { color: white; }
+  }
+
+  .ctaBtn {
+    background: v.$secondary;
+    color: v.$primary;
+    &:hover {
+      background: v.$secondary-light;
+      box-shadow: v.$shadow-gold;
+    }
+  }
+
+  .hamburger {
+    color: rgba(white, 0.88);
+    &:hover { background: rgba(white, 0.08); }
+  }
+}
+
+// ─── Scrolled state (solid dark) ─────────────────────────────────────────────
+.scrolled {
+  background: rgba(v.$primary, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(white, 0.05), 0 4px 32px rgba(0, 0, 0, 0.28);
+
+  .logoMain  { color: white; }
+  .logoSub   { color: rgba(white, 0.4); }
+
+  .navLink {
+    color: rgba(white, 0.68);
+    &:hover          { color: white; }
+    &.active         { color: v.$secondary; }
+    &.active::after  { background: v.$secondary; transform: scaleX(1); }
+    &:hover::after   { background: rgba(v.$secondary, 0.45); transform: scaleX(1); }
+  }
+
+  .phoneLink {
+    color: rgba(white, 0.58);
+    &:hover { color: rgba(white, 0.9); }
+  }
+
+  .ctaBtn {
+    background: v.$secondary;
+    color: v.$primary;
+    &:hover {
+      background: v.$secondary-light;
+      box-shadow: v.$shadow-gold;
+    }
+  }
+
+  .hamburger {
+    color: rgba(white, 0.88);
+    &:hover { background: rgba(white, 0.07); }
+  }
+}
+
+// ─── Logo ─────────────────────────────────────────────────────────────────────
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoImage {
+  width: 42px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoMain {
+  font-family: v.$font-heading;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  line-height: 1.2;
+  transition: color v.$transition-normal;
+
+  @include m.respond-to(lg) { font-size: 16px; }
+}
+
+.logoSub {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  transition: color v.$transition-normal;
+  margin-top: 1px;
+}
+
+// ─── Desktop Nav ─────────────────────────────────────────────────────────────
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+
+  @include m.respond-to(lg) { display: none; }
+}
+
+.navLink {
+  position: relative;
+  padding: 8px 13px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.35px;
+  text-decoration: none;
+  transition: color v.$transition-fast;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 13px;
+    right: 13px;
+    height: 1.5px;
+    border-radius: 1px;
+    transform: scaleX(0);
+    transition: transform v.$transition-normal, background v.$transition-fast;
+  }
+}
+
+// ─── Actions ──────────────────────────────────────────────────────────────────
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.phoneLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  transition: color v.$transition-fast;
+
+  @include m.respond-to(lg) { display: none; }
+}
+
+.ctaBtn {
+  @include m.btn-base;
+  padding: 10px 22px;
+  font-size: 13px;
+  border-radius: v.$radius-full;
+  font-weight: 700;
+
+  @include m.respond-to(lg) { display: none; }
+}
+
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: v.$radius-md;
+  transition: all v.$transition-fast;
+
+  @include m.respond-to(lg) { display: flex; }
+}
+
+// ─── Mobile Menu ──────────────────────────────────────────────────────────────
+.mobileMenu {
+  position: fixed;
+  top: 74px;
+  left: 0;
+  right: 0;
+  background: rgba(v.$primary, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(white, 0.06);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.28s ease;
+  opacity: 0;
+  pointer-events: none;
+
+  @media (min-width: 1025px) { display: none; }
+
+  &.mobileOpen {
+    max-height: 620px;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 24px 28px;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 15px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(white, 0.7);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(white, 0.055);
+  transition: all v.$transition-fast;
+  letter-spacing: 0.2px;
+
+  &:last-of-type { border-bottom: none; }
+
+  &:hover {
+    color: white;
+    padding-left: 24px;
+  }
+
+  &.active {
+    color: v.$secondary;
+    font-weight: 500;
+  }
+}
+
+.mobileCta {
+  @include m.btn-primary;
+  justify-content: center;
+  margin-top: 16px;
+  font-size: 14.5px;
+  width: 100%;
+  border-radius: v.$radius-md;
+  padding: 15px 24px;
+}

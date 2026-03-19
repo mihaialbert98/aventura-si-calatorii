@@ -1,0 +1,669 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.container {
+  @include m.container;
+}
+
+// ============================================================
+// Services Section — Dark forest background
+// ============================================================
+.servicesSection {
+  padding: 110px 0;
+  background: v.$primary;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Horizontal scroll snap on mobile
+  @include m.respond-to(sm) {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+
+    > * {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 82vw;
+      max-width: 320px;
+    }
+  }
+}
+
+// ============================================================
+// Featured Trips Section — Warm cream background
+// ============================================================
+.tripsSection {
+  padding: 110px 0;
+  background: v.$background;
+}
+
+.tripsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Horizontal scroll snap on mobile
+  @include m.respond-to(sm) {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+
+    > * {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 85vw;
+      max-width: 320px;
+    }
+  }
+}
+
+// ============================================================
+// About Section — White background
+// ============================================================
+.aboutSection {
+  padding: 110px 0;
+  background: v.$surface;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 88px;
+  align-items: center;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutLine {
+  width: 36px;
+  height: 2px;
+  background: v.$secondary;
+  border-radius: 1px;
+  margin-bottom: 22px;
+}
+
+.aboutTitle {
+  font-family: v.$font-heading;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 600;
+  color: v.$text-primary;
+  margin-bottom: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.2px;
+}
+
+.aboutText {
+  font-size: 15.5px;
+  color: v.$text-secondary;
+  line-height: 1.78;
+  margin-bottom: 18px;
+  font-weight: 300;
+
+  strong {
+    color: v.$primary;
+    font-weight: 600;
+  }
+}
+
+.aboutCerts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.cert {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: rgba(v.$accent, 0.07);
+  border: 1px solid rgba(v.$accent, 0.18);
+  border-radius: v.$radius-full;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: v.$accent;
+  letter-spacing: 0.2px;
+}
+
+.certIcon {
+  font-style: normal;
+  font-size: 13px;
+}
+
+// ─── Stats (used in HomeClient.tsx) ──────────────────────────────────────────
+.aboutStats {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px;
+  background: v.$background;
+  border-radius: v.$radius-lg;
+  border: 1px solid v.$border;
+  transition: box-shadow v.$transition-normal, transform v.$transition-normal;
+
+  &:hover {
+    box-shadow: v.$shadow-md;
+    transform: translateY(-3px);
+  }
+}
+
+.statNumber {
+  font-family: v.$font-heading;
+  font-size: 42px;
+  font-weight: 600;
+  color: v.$primary;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.statDesc {
+  font-size: 13px;
+  color: v.$text-secondary;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.aboutImage {
+  position: relative;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+  height: 280px;
+  box-shadow: v.$shadow-lg;
+}
+
+.aboutImageInner {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.aboutImageBadge {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  background: rgba(v.$primary, 0.92);
+  backdrop-filter: blur(10px);
+  border-radius: v.$radius-md;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.badgeNumber {
+  font-family: v.$font-heading;
+  font-size: 26px;
+  font-weight: 600;
+  color: v.$secondary;
+  line-height: 1;
+  letter-spacing: -0.3px;
+}
+
+.badgeText {
+  font-size: 11.5px;
+  color: rgba(white, 0.72);
+  margin-top: 3px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+}
+
+// ============================================================
+// Why Us Section — Dark forest background
+// ============================================================
+.whySection {
+  padding: 110px 0;
+  background: v.$primary;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-to(sm) {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+}
+
+.whyCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 28px;
+  background: rgba(white, 0.04);
+  border-radius: v.$radius-lg;
+  border: 1px solid rgba(white, 0.07);
+  transition: background v.$transition-normal, transform v.$transition-normal, box-shadow v.$transition-normal;
+
+  &:hover {
+    background: rgba(white, 0.07);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  }
+
+  @include m.respond-to(sm) {
+    padding: 22px 18px;
+  }
+}
+
+.whyIcon {
+  font-size: 38px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.whyTitle {
+  font-family: v.$font-heading;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 12px;
+  letter-spacing: 0.1px;
+}
+
+.whyDesc {
+  font-size: 14px;
+  color: rgba(white, 0.58);
+  line-height: 1.72;
+  font-weight: 300;
+}
+
+// ============================================================
+// Testimonials Section — Dark forest (with gold stars)
+// ============================================================
+.testimonialsSection {
+  padding: 110px 0;
+  background: v.$primary;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-to(sm) {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+
+    > * {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 86vw;
+    }
+  }
+}
+
+.testimonialCard {
+  background: rgba(white, 0.05);
+  border: 1px solid rgba(white, 0.08);
+  border-radius: v.$radius-lg;
+  padding: 32px;
+  backdrop-filter: blur(8px);
+  transition: background v.$transition-normal, transform v.$transition-normal;
+
+  &:hover {
+    background: rgba(white, 0.08);
+    transform: translateY(-3px);
+  }
+}
+
+.testimonialStars {
+  font-size: 17px;
+  color: v.$secondary;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.testimonialText {
+  font-size: 14.5px;
+  color: rgba(white, 0.72);
+  line-height: 1.78;
+  margin-bottom: 26px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.testimonialAvatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: v.$primary-light;
+  border: 2px solid rgba(v.$secondary, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: v.$secondary;
+  flex-shrink: 0;
+}
+
+.testimonialName {
+  font-weight: 600;
+  color: white;
+  font-size: 14.5px;
+}
+
+.testimonialRole {
+  font-size: 12.5px;
+  color: rgba(white, 0.48);
+  margin-top: 2px;
+  font-weight: 300;
+}
+
+// ============================================================
+// Contact Section — White background
+// ============================================================
+.contactSection {
+  padding: 110px 0;
+  background: v.$surface;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactTitle {
+  font-family: v.$font-heading;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 600;
+  color: v.$text-primary;
+  margin-bottom: 18px;
+  letter-spacing: -0.2px;
+}
+
+.contactSubtitle {
+  font-size: 15.5px;
+  color: v.$text-secondary;
+  line-height: 1.72;
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 32px;
+}
+
+.contactDetail {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contactDetailIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.contactDetail > div {
+  display: flex;
+  flex-direction: column;
+
+  strong {
+    font-size: 12px;
+    font-weight: 700;
+    color: v.$text-primary;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 14.5px;
+    color: v.$text-secondary;
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  a {
+    font-size: 14.5px;
+    color: v.$accent;
+    text-decoration: none;
+    font-weight: 400;
+
+    &:hover { color: v.$accent-light; }
+  }
+}
+
+.mapPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  background: v.$background;
+  border: 1.5px dashed v.$border-dark;
+  border-radius: v.$radius-lg;
+  color: v.$text-muted;
+  gap: 8px;
+
+  span { font-size: 20px; }
+  p    { font-size: 13.5px; font-weight: 300; }
+}
+
+// ─── Contact Form ─────────────────────────────────────────────────────────────
+.contactFormWrapper {
+  width: 100%;
+}
+
+.contactForm {
+  background: v.$surface;
+  border-radius: v.$radius-xl;
+  padding: 44px;
+  box-shadow: v.$shadow-lg;
+  border: 1px solid v.$border;
+
+  @include m.respond-to(sm) { padding: 28px 22px; }
+}
+
+.formTitle {
+  font-family: v.$font-heading;
+  font-size: 26px;
+  font-weight: 600;
+  color: v.$text-primary;
+  margin-bottom: 30px;
+  letter-spacing: 0.1px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @include m.respond-to(sm) { grid-template-columns: 1fr; }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formLabel {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: v.$text-secondary;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.formInput {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid v.$border;
+  border-radius: v.$radius-md;
+  font-size: 14.5px;
+  font-family: v.$font-body;
+  color: v.$text-primary;
+  background: v.$background;
+  transition: border-color v.$transition-fast, background v.$transition-fast;
+  outline: none;
+  font-weight: 400;
+
+  &:focus {
+    border-color: v.$secondary;
+    background: white;
+  }
+
+  &.inputError { border-color: v.$error; }
+
+  &::placeholder { color: v.$text-muted; font-weight: 300; }
+}
+
+.formTextarea {
+  @extend .formInput;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.errorMsg {
+  font-size: 12px;
+  color: v.$error;
+  font-weight: 500;
+}
+
+.formBtn {
+  @include m.btn-primary;
+  width: 100%;
+  justify-content: center;
+  padding: 16px 24px;
+  font-size: 14px;
+  margin-top: 4px;
+  border-radius: v.$radius-md;
+  letter-spacing: 0.5px;
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(v.$primary, 0.25);
+  border-top-color: v.$primary;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.formSuccess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 20px;
+  gap: 16px;
+
+  h4 {
+    font-family: v.$font-heading;
+    font-size: 24px;
+    font-weight: 600;
+    color: v.$text-primary;
+    letter-spacing: 0.1px;
+  }
+
+  p {
+    font-size: 15px;
+    color: v.$text-secondary;
+    font-weight: 300;
+  }
+}
+
+.successIcon { color: v.$accent; }

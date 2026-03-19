@@ -1,0 +1,409 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pageTitle {
+  font-family: v.$font-heading;
+  font-size: 28px;
+  font-weight: 700;
+  color: v.$text-primary;
+  margin-bottom: 4px;
+}
+
+.pageSubtitle {
+  font-size: 14px;
+  color: v.$text-secondary;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: v.$secondary;
+  color: white;
+  border: none;
+  border-radius: v.$radius-full;
+  font-family: v.$font-body;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all v.$transition-normal;
+
+  &:hover {
+    background: v.$secondary-light;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(v.$secondary, 0.3);
+  }
+}
+
+.errorBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: rgba(#e53e3e, 0.08);
+  border: 1px solid rgba(#e53e3e, 0.2);
+  border-radius: v.$radius-md;
+  font-size: 14px;
+  color: #c53030;
+  font-weight: 500;
+}
+
+.loadingMsg {
+  text-align: center;
+  padding: 48px;
+  color: v.$text-muted;
+  font-size: 15px;
+}
+
+// Add Form Card
+.formCard {
+  background: white;
+  border-radius: v.$radius-lg;
+  padding: 28px;
+  border: 1px solid v.$border;
+  border-top: 3px solid v.$secondary;
+  box-shadow: v.$shadow-md;
+}
+
+.formCardTitle {
+  font-family: v.$font-heading;
+  font-size: 18px;
+  font-weight: 700;
+  color: v.$text-primary;
+  margin-bottom: 20px;
+}
+
+.form,
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.editFormHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.editFormTitle {
+  font-family: v.$font-heading;
+  font-size: 17px;
+  font-weight: 700;
+  color: v.$text-primary;
+}
+
+.closeEditBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: v.$text-muted;
+  border-radius: v.$radius-sm;
+  transition: all v.$transition-fast;
+
+  &:hover {
+    background: v.$background;
+    color: v.$text-primary;
+  }
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @include m.respond-to(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: v.$text-secondary;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 11px 15px;
+  border: 1.5px solid v.$border;
+  border-radius: v.$radius-md;
+  font-size: 14px;
+  font-family: v.$font-body;
+  color: v.$text-primary;
+  background: v.$background;
+  transition: border-color v.$transition-fast;
+  outline: none;
+
+  &:focus {
+    border-color: v.$secondary;
+    background: white;
+  }
+
+  &.inputError {
+    border-color: #e53e3e;
+  }
+
+  &::placeholder {
+    color: v.$text-muted;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 70px;
+  line-height: 1.5;
+}
+
+.colorRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.colorPicker {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid v.$border;
+  border-radius: v.$radius-sm;
+  padding: 3px;
+  cursor: pointer;
+  background: white;
+  flex-shrink: 0;
+}
+
+.fieldError {
+  font-size: 12px;
+  color: #e53e3e;
+  font-weight: 500;
+}
+
+.formFooter {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.cancelBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1.5px solid v.$border;
+  border-radius: v.$radius-full;
+  font-size: 14px;
+  font-weight: 600;
+  color: v.$text-secondary;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all v.$transition-fast;
+
+  &:hover {
+    border-color: v.$text-secondary;
+    color: v.$text-primary;
+  }
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 22px;
+  background: v.$secondary;
+  color: white;
+  border: none;
+  border-radius: v.$radius-full;
+  font-family: v.$font-body;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all v.$transition-normal;
+
+  &:hover:not(:disabled) {
+    background: v.$secondary-light;
+    box-shadow: 0 4px 16px rgba(v.$secondary, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(white, 0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// Rubrics List
+.rubricsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rubricCard {
+  background: white;
+  border-radius: v.$radius-lg;
+  border: 1px solid v.$border;
+  overflow: hidden;
+  box-shadow: v.$shadow-sm;
+  transition: box-shadow v.$transition-fast;
+  padding: 20px;
+
+  &:hover {
+    box-shadow: v.$shadow-md;
+  }
+}
+
+.rubricCardContent {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  gap: 20px;
+}
+
+.rubricColorBar {
+  width: 6px;
+  height: 60px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.rubricInfo {
+  flex: 1;
+}
+
+.rubricHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.rubricName {
+  font-family: v.$font-heading;
+  font-size: 18px;
+  font-weight: 700;
+  color: v.$text-primary;
+}
+
+.rubricIcon {
+  font-size: 12px;
+  color: v.$text-muted;
+
+  code {
+    background: v.$background;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+  }
+}
+
+.rubricDesc {
+  font-size: 14px;
+  color: v.$text-secondary;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.rubricMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rubricColorChip {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: v.$radius-full;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.rubricSlug {
+  font-size: 12px;
+  color: v.$text-muted;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.rubricActions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+%icon-btn-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: v.$radius-md;
+  border: none;
+  cursor: pointer;
+  transition: all v.$transition-fast;
+  background: v.$background;
+}
+
+.iconBtn {
+  @extend %icon-btn-base;
+  color: v.$text-secondary;
+
+  &:hover {
+    background: rgba(v.$secondary, 0.12);
+    color: v.$secondary;
+  }
+}
+
+.iconBtnDelete {
+  @extend %icon-btn-base;
+  color: v.$text-muted;
+
+  &:hover {
+    background: rgba(#e53e3e, 0.1);
+    color: #e53e3e;
+  }
+}

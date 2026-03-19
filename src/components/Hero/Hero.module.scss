@@ -1,0 +1,227 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.06);
+  animation: slowZoom 22s ease-in-out infinite alternate;
+
+  @keyframes slowZoom {
+    from { transform: scale(1.06); }
+    to   { transform: scale(1.14); }
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    155deg,
+    rgba(v.$primary, 0.22) 0%,
+    rgba(v.$primary, 0.58) 45%,
+    rgba(v.$primary, 0.90) 100%
+  );
+}
+
+// Subtle film grain for cinematic depth
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.38;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+// Content
+.content {
+  position: relative;
+  z-index: 2;
+  @include m.container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+  padding-bottom: 130px;
+  padding-top: 80px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 22px;
+  background: rgba(v.$secondary, 0.14);
+  border: 1px solid rgba(v.$secondary, 0.32);
+  border-radius: v.$radius-full;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: v.$secondary-light;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.title {
+  font-family: v.$font-heading;
+  font-size: clamp(46px, 7.5vw, 90px);
+  font-weight: 600;
+  color: white;
+  line-height: 1.04;
+  max-width: 860px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.2);
+
+  @include m.respond-to(md) {
+    font-size: clamp(38px, 9vw, 60px);
+  }
+}
+
+.titleAccent {
+  color: v.$secondary;
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(white, 0.72);
+  max-width: 540px;
+  line-height: 1.78;
+  font-weight: 300;
+  letter-spacing: 0.15px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.btnPrimary {
+  @include m.btn-primary;
+  font-size: 14px;
+  padding: 16px 40px;
+  letter-spacing: 0.6px;
+}
+
+.btnOutline {
+  @include m.btn-outline;
+  font-size: 14px;
+  padding: 16px 40px;
+  letter-spacing: 0.6px;
+}
+
+// Scroll indicator
+.scrollIndicator {
+  position: absolute;
+  bottom: 142px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 20px;
+  gap: 7px;
+  color: rgba(white, 0.45);
+  cursor: pointer;
+  transition: color v.$transition-fast;
+
+  span {
+    font-size: 9.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  &:hover { color: rgba(white, 0.8); }
+
+  @include m.respond-to(sm) { display: none; }
+}
+
+// ─── Stats Bar ────────────────────────────────────────────────────────────────
+.statsBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: stretch;
+  background: rgba(v.$primary, 0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(white, 0.09);
+
+  @include m.respond-to(sm) {
+    display: none;
+  }
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 44px;
+  position: relative;
+
+  &:not(:last-child) {
+    border-right: 1px solid rgba(white, 0.09);
+  }
+
+  @include m.respond-to(lg) {
+    padding: 20px 28px;
+    gap: 12px;
+  }
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(v.$secondary, 0.16);
+  border-radius: v.$radius-md;
+  color: v.$secondary;
+  flex-shrink: 0;
+}
+
+.statText {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-family: v.$font-heading;
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: rgba(white, 0.55);
+  margin-top: 3px;
+  letter-spacing: 0.2px;
+  font-weight: 300;
+}

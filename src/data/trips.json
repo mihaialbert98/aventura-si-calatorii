@@ -1,0 +1,268 @@
+[
+  {
+    "id": "1",
+    "title": "Castelul Bran și Râșnov",
+    "slug": "castelul-bran-si-rasnov",
+    "description": "O excursie fascinantă pentru elevi la cele mai iconice castele din Transilvania. Elevii vor descoperi istoria medievală a Transilvaniei, vor explora Castelul Bran — legendar rezidența lui Dracula — și vor vizita impresionanta Cetate Râșnov cu vedere panoramică asupra Munților Bucegi.",
+    "shortDescription": "Explorați misterele Castelului Bran și panoramele spectaculoase de la Cetatea Râșnov.",
+    "rubricId": "1",
+    "rubricSlug": "excursii-scolare",
+    "price": 85,
+    "duration": "1 zi",
+    "groupSize": "20-50 elevi",
+    "destination": "Bran & Râșnov, Brașov",
+    "departureFrom": "Brașov",
+    "includes": [
+      "Transport autocar",
+      "Ghid specializat",
+      "Bilete de intrare",
+      "Asigurare"
+    ],
+    "excludes": [
+      "Masa",
+      "Cheltuieli personale"
+    ],
+    "itinerary": [
+      {
+        "day": "Dimineața",
+        "description": "Plecare din Brașov, sosire la Castelul Bran, tur ghidat (2h)"
+      },
+      {
+        "day": "Prânz",
+        "description": "Timp liber în zona Bran, masă opțională la restaurantele locale"
+      },
+      {
+        "day": "După-amiaza",
+        "description": "Vizita Cetății Râșnov, priveliști panoramice, retur Brașov"
+      }
+    ],
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Bran_Castle%2C_Romania.jpg/1280px-Bran_Castle%2C_Romania.jpg",
+      "https://images.unsplash.com/photo-1562986234-5c4b6e8c3e01?w=800"
+    ],
+    "featured": false,
+    "difficulty": "Ușor",
+    "nextDeparture": "2025-04-15T00:00:00.000Z",
+    "createdAt": "2024-01-10T00:00:00.000Z",
+    "imagesRaw": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Bran_Castle%2C_Romania.jpg/1280px-Bran_Castle%2C_Romania.jpg\nhttps://images.unsplash.com/photo-1562986234-5c4b6e8c3e01?w=800",
+    "includesRaw": "Transport autocar\nGhid specializat\nBilete de intrare\nAsigurare",
+    "excludesRaw": "Masa\nCheltuieli personale"
+  },
+  {
+    "id": "2",
+    "title": "Sinaia & Castelul Peleș",
+    "slug": "sinaia-castelul-peles",
+    "description": "O zi memorabilă la perla Carpaților — Sinaia. Elevii vor vizita fascinantul Castel Peleș, una dintre cele mai frumoase reședințe regale din Europa, și vor descoperi Mănăstirea Sinaia cu bogata sa istorie.",
+    "shortDescription": "Regele munților și bijuteria arhitecturală a Castelului Peleș vă așteaptă.",
+    "rubricId": "1",
+    "rubricSlug": "excursii-scolare",
+    "price": 95,
+    "duration": "1 zi",
+    "groupSize": "20-50 elevi",
+    "destination": "Sinaia, Prahova",
+    "departureFrom": "Brașov",
+    "includes": [
+      "Transport autocar",
+      "Ghid specializat",
+      "Bilete intrare Peleș",
+      "Asigurare"
+    ],
+    "excludes": [
+      "Masa",
+      "Cheltuieli personale",
+      "Bilete opționale Pelișor"
+    ],
+    "itinerary": [
+      {
+        "day": "Dimineața",
+        "description": "Plecare din Brașov, sosire la Mănăstirea Sinaia, tur 45 min"
+      },
+      {
+        "day": "Prânz",
+        "description": "Vizita Castelului Peleș — tur ghidat complet (2h)"
+      },
+      {
+        "day": "După-amiaza",
+        "description": "Timp liber în Sinaia, plimbare pe Calea Victoriei, retur"
+      }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1562986234-5c4b6e8c3e01?w=800",
+      "https://images.unsplash.com/photo-1604131879849-b76a1f01bc9f?w=800"
+    ],
+    "featured": true,
+    "difficulty": "Ușor",
+    "nextDeparture": "2025-04-22T08:00:00.000Z",
+    "createdAt": "2024-01-12T00:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "title": "Circuit Mănăstiri Moldova",
+    "slug": "circuit-manastiri-moldova",
+    "description": "Un circuit de 3 zile prin Moldova, vizitând celebrele mănăstiri pictate înscrise în patrimoniul UNESCO: Voroneț, Sucevița, Moldovița și Humor. Cazare confortabilă, transport de lux și ghid expert incluse.",
+    "shortDescription": "Frescele bizantine ale Moldovei — o călătorie spirituală de neuitat.",
+    "rubricId": "2",
+    "rubricSlug": "excursii-seniori",
+    "price": 380,
+    "duration": "3 zile / 2 nopți",
+    "groupSize": "20-40 persoane",
+    "destination": "Suceava & Neamț, Moldova",
+    "departureFrom": "Brașov",
+    "includes": [
+      "Transport autocar premium",
+      "Cazare 2 nopți (3*)",
+      "Mic dejun zilnic",
+      "Ghid specializat",
+      "Bilete intrare",
+      "Asigurare"
+    ],
+    "excludes": [
+      "Prânz și cină",
+      "Cheltuieli personale"
+    ],
+    "itinerary": [
+      {
+        "day": "Ziua 1",
+        "description": "Plecare Brașov, Mănăstirea Neamț, sosire Suceava, cazare"
+      },
+      {
+        "day": "Ziua 2",
+        "description": "Voroneț, Humor, Moldovița — turul mănăstirilor pictate UNESCO"
+      },
+      {
+        "day": "Ziua 3",
+        "description": "Sucevița, Cetatea Sucevei, retur Brașov seara"
+      }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555993539-1732b0258235?w=800",
+      "https://images.unsplash.com/photo-1548813831-5e8be31b5ed9?w=800"
+    ],
+    "featured": true,
+    "difficulty": "Ușor",
+    "nextDeparture": "2025-05-10T07:00:00.000Z",
+    "createdAt": "2024-01-15T00:00:00.000Z"
+  },
+  {
+    "id": "4",
+    "title": "Delta Dunării — Paradisul Păsărilor",
+    "slug": "delta-dunarii-paradisul-pasarilor",
+    "description": "5 zile de relaxare și descoperire în cea mai mare deltă din Europa, UNESCO. Croaziere cu barca prin canalele sălbatice, pescuit, observarea păsărilor și gastronomia tradițională dobrogeană vă așteaptă.",
+    "shortDescription": "Cea mai spectaculoasă biodiversitate din Europa, la doar o zi de Brașov.",
+    "rubricId": "2",
+    "rubricSlug": "excursii-seniori",
+    "price": 650,
+    "duration": "5 zile / 4 nopți",
+    "groupSize": "15-30 persoane",
+    "destination": "Tulcea & Delta Dunării",
+    "departureFrom": "Brașov",
+    "includes": [
+      "Transport autocar",
+      "Cazare 4 nopți pensiune",
+      "Pensiune completă",
+      "Croaziere zilnice",
+      "Ghid ornitolog",
+      "Asigurare"
+    ],
+    "excludes": [
+      "Băuturi alcoolice",
+      "Cheltuieli personale"
+    ],
+    "itinerary": [
+      {
+        "day": "Ziua 1",
+        "description": "Brașov → Tulcea, transfer la pensiune în deltă, cină de bun venit"
+      },
+      {
+        "day": "Ziua 2-3",
+        "description": "Croaziere prin brațele Sulina și Sfântu Gheorghe, observare faună"
+      },
+      {
+        "day": "Ziua 4",
+        "description": "Vizita Muzeului Deltei, sat pescăresc tradițional"
+      },
+      {
+        "day": "Ziua 5",
+        "description": "Mic dejun, retur Brașov"
+      }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1584553391547-fa4a6d46c879?w=800",
+      "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=800"
+    ],
+    "featured": false,
+    "difficulty": "Ușor",
+    "nextDeparture": "2025-06-05T07:00:00.000Z",
+    "createdAt": "2024-01-20T00:00:00.000Z"
+  },
+  {
+    "id": "5",
+    "title": "Transfer Aeroport & Evenimente",
+    "slug": "transfer-aeroport-evenimente",
+    "description": "Servicii profesionale de transport grup pentru transferuri aeroportuare, nunți, conferințe, team building-uri și orice eveniment care necesită transport organizat și de calitate.",
+    "shortDescription": "Transport premium pentru grupuri — de la 15 la 55 de persoane.",
+    "rubricId": "3",
+    "rubricSlug": "inchiriere-autocare",
+    "price": 150,
+    "duration": "La cerere",
+    "groupSize": "15-55 persoane",
+    "destination": "Oriunde în România",
+    "departureFrom": "Brașov",
+    "includes": [
+      "Șofer profesionist licențiat",
+      "Combustibil",
+      "Asigurare pasageri și bagaje",
+      "Aer condiționat",
+      "WiFi la bord"
+    ],
+    "excludes": [
+      "Taxe de drum și parcare",
+      "Servicii adiționale"
+    ],
+    "itinerary": [],
+    "images": [
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800",
+      "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800"
+    ],
+    "featured": false,
+    "difficulty": "Ușor",
+    "nextDeparture": "2025-04-01T00:00:00.000Z",
+    "createdAt": "2024-01-25T00:00:00.000Z"
+  },
+  {
+    "id": "6",
+    "title": "Circuit Turistic Personalizat",
+    "slug": "circuit-turistic-personalizat",
+    "description": "Proiectați propriul circuit turistic! Alegem împreună destinațiile, durata și programul. Autocarul nostru modern, cu 45-55 locuri, dotări premium și șofer cu experiență, este la dispoziția grupului dumneavoastră.",
+    "shortDescription": "Itinerarul tău, autocarul nostru. Flexibilitate maximă pentru grupul tău.",
+    "rubricId": "3",
+    "rubricSlug": "inchiriere-autocare",
+    "price": 200,
+    "duration": "Flexibil",
+    "groupSize": "25-55 persoane",
+    "destination": "La alegere",
+    "departureFrom": "Brașov",
+    "includes": [
+      "Autocar 45-55 locuri",
+      "Șofer profesionist",
+      "Combustibil",
+      "Asigurare completă",
+      "GPS & monitorizare"
+    ],
+    "excludes": [
+      "Ghid turistic",
+      "Cazare",
+      "Masă",
+      "Taxe intrare obiective"
+    ],
+    "itinerary": [],
+    "images": [
+      "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800",
+      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800"
+    ],
+    "featured": true,
+    "difficulty": "Ușor",
+    "nextDeparture": "2025-04-01T00:00:00.000Z",
+    "createdAt": "2024-01-28T00:00:00.000Z"
+  }
+]

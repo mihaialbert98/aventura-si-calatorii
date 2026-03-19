@@ -1,0 +1,95 @@
+@use 'variables' as v;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin container {
+  max-width: v.$container-max;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@mixin section-padding {
+  padding: v.$section-padding;
+}
+
+@mixin card-hover {
+  transition: transform v.$transition-normal, box-shadow v.$transition-normal;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: v.$shadow-xl;
+  }
+}
+
+@mixin respond-to($bp) {
+  @if $bp == sm  { @media (max-width: 640px)  { @content; } }
+  @else if $bp == md { @media (max-width: 768px)  { @content; } }
+  @else if $bp == lg { @media (max-width: 1024px) { @content; } }
+  @else if $bp == xl { @media (max-width: 1280px) { @content; } }
+}
+
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: v.$radius-full;
+  font-family: v.$font-body;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all v.$transition-normal;
+  white-space: nowrap;
+}
+
+// Gold button — primary CTA (gold bg, dark forest text)
+@mixin btn-primary {
+  @include btn-base;
+  background: v.$secondary;
+  color: v.$primary;
+  &:hover {
+    background: v.$secondary-light;
+    transform: translateY(-2px);
+    box-shadow: v.$shadow-gold;
+  }
+}
+
+// Outline button — used on dark backgrounds (hero)
+@mixin btn-outline {
+  @include btn-base;
+  background: transparent;
+  color: white;
+  border: 1.5px solid rgba(white, 0.42);
+  &:hover {
+    border-color: v.$secondary;
+    color: v.$secondary;
+    background: rgba(v.$secondary, 0.08);
+  }
+}
+
+// Dark button — solid forest green
+@mixin btn-dark {
+  @include btn-base;
+  background: v.$primary;
+  color: white;
+  &:hover {
+    background: v.$primary-light;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(v.$primary, 0.35);
+  }
+}
+
+@mixin gradient-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(v.$primary, 0.18) 0%,
+    rgba(v.$primary, 0.62) 50%,
+    rgba(v.$primary, 0.92) 100%
+  );
+}

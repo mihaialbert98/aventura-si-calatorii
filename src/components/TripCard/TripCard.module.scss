@@ -1,0 +1,256 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.card {
+  background: v.$surface;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+  border: 1px solid v.$border;
+  box-shadow: v.$shadow-sm;
+  transition: box-shadow v.$transition-normal, transform v.$transition-normal;
+
+  &:hover {
+    box-shadow: v.$shadow-lg;
+    transform: translateY(-5px);
+
+    .image          { transform: scale(1.07); }
+    .imageOverlay   { opacity: 0.75; }
+    .cta            { gap: 10px; color: v.$accent; }
+    .ctaArrow       { transform: translateX(3px); }
+  }
+
+  &.vertical {
+    display: flex;
+    flex-direction: column;
+
+    .imageWrapper { height: 260px; }
+  }
+
+  &.horizontal {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+
+    .imageWrapper {
+      height: 100%;
+      min-height: 240px;
+    }
+
+    @include m.respond-to(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.cardLink {
+  display: contents;
+  text-decoration: none;
+  color: inherit;
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform v.$transition-slow;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(v.$primary, 0.72) 0%,
+    rgba(v.$primary, 0.1) 45%,
+    transparent 65%
+  );
+  opacity: 0.55;
+  transition: opacity v.$transition-normal;
+}
+
+// ─── Badges ───────────────────────────────────────────────────────────────────
+.badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+.featuredBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: v.$secondary;
+  color: v.$primary;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  border-radius: v.$radius-full;
+  text-transform: uppercase;
+}
+
+.rubricBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  background: rgba(v.$primary, 0.72);
+  backdrop-filter: blur(10px);
+  color: rgba(white, 0.88);
+  font-size: 10.5px;
+  font-weight: 500;
+  border-radius: v.$radius-full;
+  letter-spacing: 0.3px;
+}
+
+// ─── Price Tag ────────────────────────────────────────────────────────────────
+.priceTag {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: rgba(v.$primary, 0.85);
+  backdrop-filter: blur(14px);
+  border-radius: v.$radius-md;
+  padding: 8px 14px;
+  z-index: 2;
+}
+
+.priceFrom {
+  font-size: 10px;
+  color: rgba(white, 0.58);
+  letter-spacing: 0.3px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.priceValue {
+  font-family: v.$font-heading;
+  font-size: 25px;
+  font-weight: 600;
+  color: v.$secondary;
+  line-height: 1;
+  letter-spacing: -0.3px;
+}
+
+.pricePer {
+  font-size: 10px;
+  color: rgba(white, 0.5);
+  margin-top: 2px;
+  font-weight: 300;
+}
+
+// ─── Content ──────────────────────────────────────────────────────────────────
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 22px 18px;
+  flex: 1;
+}
+
+.title {
+  font-family: v.$font-heading;
+  font-size: 22px;
+  font-weight: 600;
+  color: v.$text-primary;
+  margin-bottom: 8px;
+  line-height: 1.22;
+  letter-spacing: 0.1px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.description {
+  font-size: 13.5px;
+  color: v.$text-secondary;
+  line-height: 1.65;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+  font-weight: 300;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  color: v.$text-secondary;
+  font-weight: 400;
+
+  svg {
+    color: v.$accent;
+    flex-shrink: 0;
+  }
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid v.$border;
+  margin-top: auto;
+}
+
+.difficultyBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: v.$radius-full;
+  letter-spacing: 0.4px;
+
+  &[data-difficulty='Ușor'] {
+    background: rgba(v.$accent, 0.1);
+    color: v.$accent;
+  }
+
+  &[data-difficulty='Moderat'] {
+    background: rgba(v.$secondary-dark, 0.12);
+    color: v.$secondary-dark;
+  }
+
+  &[data-difficulty='Dificil'] {
+    background: rgba(v.$error, 0.1);
+    color: v.$error;
+  }
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: v.$accent;
+  letter-spacing: 0.2px;
+  transition: gap v.$transition-fast, color v.$transition-fast;
+}
+
+.ctaArrow {
+  display: flex;
+  align-items: center;
+  transition: transform v.$transition-fast;
+}

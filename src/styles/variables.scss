@@ -1,0 +1,64 @@
+// ============================================================
+// DESIGN SYSTEM — Aventură și Călătorii
+// Palette: Deep Forest × Warm Gold × Cream
+// ============================================================
+
+// Core Colors
+$primary:           #0d1f17;   // Near-black forest — hero overlay, footer, navbars
+$primary-light:     #1a3d2a;   // Dark forest — dark section backgrounds
+$secondary:         #c9a96e;   // Warm gold — primary CTA, featured, active states
+$secondary-light:   #ddc08a;   // Light gold — hover states
+$secondary-dark:    #a8844a;   // Deep gold — difficulty badges
+$accent:            #2d6b47;   // Forest green — icons, secondary highlights
+$accent-light:      #3d8a5c;   // Lighter forest green — hover
+
+// Background & Surface
+$background:        #f5f0e8;   // Warm cream — primary light background
+$cream-dark:        #ede7da;   // Slightly darker cream
+$surface:           #ffffff;   // Pure white — cards, forms
+
+// Text
+$text-primary:      #1a1a1a;   // Near-black
+$text-secondary:    #4d4d4d;   // Medium — body text
+$text-muted:        #8a8a8a;   // Captions, meta
+
+// Borders
+$border:            #ddd7cd;   // Warm light border
+$border-dark:       #c4bcb0;   // Darker warm border
+
+// Status
+$success:           #2d9b5e;
+$error:             #d94f4f;
+
+// Shadows
+$shadow-sm:  0 1px 4px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+$shadow-md:  0 4px 20px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05);
+$shadow-lg:  0 12px 48px rgba(0,0,0,0.13), 0 4px 16px rgba(0,0,0,0.07);
+$shadow-xl:  0 24px 72px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.09);
+$shadow-gold: 0 8px 28px rgba(201,169,110,0.38);
+
+// Border radius
+$radius-sm:   6px;
+$radius-md:   12px;
+$radius-lg:   20px;
+$radius-xl:   28px;
+$radius-full: 9999px;
+
+// Spacing
+$section-padding: 120px 0;
+$container-max:   1240px;
+
+// Transitions
+$transition-fast:   0.18s ease;
+$transition-normal: 0.32s ease;
+$transition-slow:   0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Typography
+$font-heading: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+$font-body:    'Jost', -apple-system, BlinkMacSystemFont, sans-serif;

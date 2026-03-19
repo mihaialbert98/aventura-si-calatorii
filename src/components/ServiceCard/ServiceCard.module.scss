@@ -1,0 +1,135 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.card {
+  position: relative;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+  height: 460px;
+  box-shadow: v.$shadow-md;
+  transition: box-shadow v.$transition-normal, transform v.$transition-normal;
+
+  &:hover {
+    box-shadow: v.$shadow-xl;
+    transform: translateY(-7px);
+
+    .image { transform: scale(1.08); }
+
+    .overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(v.$primary, 0.32) 0%,
+        rgba(v.$primary, 0.88) 100%
+      );
+    }
+
+    .actionArrow { transform: translateX(5px); }
+    .actionLine  { width: 32px; }
+  }
+
+  @include m.respond-to(md) { height: 380px; }
+}
+
+.cardLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform v.$transition-slow;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(v.$primary, 0.08) 0%,
+    rgba(v.$primary, 0.72) 100%
+  );
+  transition: background v.$transition-normal;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 36px 32px;
+  justify-content: flex-end;
+}
+
+.iconBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: v.$radius-md;
+  background: rgba(v.$secondary, 0.18) !important;
+  border: 1px solid rgba(v.$secondary, 0.32) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: 20px;
+  color: v.$secondary;
+}
+
+.title {
+  font-family: v.$font-heading;
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+  line-height: 1.12;
+  letter-spacing: 0.1px;
+}
+
+.description {
+  font-size: 14px;
+  color: rgba(white, 0.72);
+  line-height: 1.65;
+  margin-bottom: 26px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 300;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: v.$secondary;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.6px;
+}
+
+.actionLine {
+  height: 1.5px;
+  width: 20px;
+  background: currentColor;
+  transition: width v.$transition-normal;
+  flex-shrink: 0;
+}
+
+.actionText {
+  letter-spacing: 0.5px;
+}
+
+.actionArrow {
+  display: flex;
+  align-items: center;
+  transition: transform v.$transition-fast;
+}

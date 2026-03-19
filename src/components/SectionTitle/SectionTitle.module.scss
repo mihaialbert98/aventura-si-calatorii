@@ -1,0 +1,66 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.wrapper {
+  max-width: 640px;
+  margin-bottom: 64px;
+
+  &.centered {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    .eyebrow  { justify-content: center; }
+    .lineWrap { justify-content: center; }
+  }
+
+  &.light {
+    .title    { color: white; }
+    .subtitle { color: rgba(white, 0.65); }
+    .eyebrow  { color: rgba(v.$secondary, 0.9); }
+    .line     { background: v.$secondary; }
+  }
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: v.$accent;
+}
+
+.lineWrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.line {
+  width: 36px;
+  height: 2px;
+  background: v.$secondary;
+  border-radius: 1px;
+}
+
+.title {
+  font-family: v.$font-heading;
+  font-size: clamp(30px, 4.5vw, 50px);
+  font-weight: 600;
+  color: v.$text-primary;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  letter-spacing: -0.2px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: v.$text-secondary;
+  line-height: 1.74;
+  margin: 0;
+  font-weight: 300;
+}
