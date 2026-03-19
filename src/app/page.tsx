@@ -1,14 +1,15 @@
-import { getRubrics, getTrips, getContact } from '@/lib/data';
-import Navbar from '@/components/Navbar/Navbar';
-import Hero from '@/components/Hero/Hero';
-import Footer from '@/components/Footer/Footer';
-import ServiceCard from '@/components/ServiceCard/ServiceCard';
-import TripCard from '@/components/TripCard/TripCard';
-import SectionTitle from '@/components/SectionTitle/SectionTitle';
-import AnimatedSection from '@/components/AnimatedSection/AnimatedSection';
-import HomeClient from './HomeClient';
-import ContactForm from './ContactForm';
-import styles from './HomePage.module.scss';
+import { getRubrics, getTrips, getContact } from "@/lib/data";
+import Navbar from "@/components/Navbar/Navbar";
+import Hero from "@/components/Hero/Hero";
+import Footer from "@/components/Footer/Footer";
+import ServiceCard from "@/components/ServiceCard/ServiceCard";
+import TripCard from "@/components/TripCard/TripCard";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import AnimatedSection from "@/components/AnimatedSection/AnimatedSection";
+import HomeClient from "./HomeClient";
+import ContactForm from "./ContactForm";
+import { GraduationCap, Users, Bus, CalendarDays } from 'lucide-react';
+import styles from "./HomePage.module.scss";
 
 export default async function HomePage() {
   const rubrics = await getRubrics();
@@ -72,29 +73,70 @@ export default async function HomePage() {
                 <div className={styles.aboutLine} />
                 <h2 className={styles.aboutTitle}>Despre Noi</h2>
                 <p className={styles.aboutText}>
-                  Fondată în 2010 în inima Brașovului, <strong>Aventură și Călătorii</strong> a crescut
-                  de la o mică agenție locală la una dintre cele mai apreciate companii de turism din
-                  județul Brașov, specializată în excursii cu autocarul.
+                  Compania <strong>Aventură & Călătorii</strong> își are
+                  originile în anul 2010, când un profesor de geografie pasionat
+                  de explorarea lumii a decis să transforme bucuria călătoriilor
+                  într-o misiune dedicată educației. Astfel a luat naștere o
+                  firmă de turism specializată în excursii școlare și programe
+                  pentru elevi, construită pe dorința de a oferi tinerilor
+                  experiențe autentice și memorabile.
                 </p>
                 <p className={styles.aboutText}>
-                  Cu o flotă modernă de autocare dotate cu aer condiționat, WiFi și confort premium,
-                  organizăm excursii educative pentru elevi, tururi relaxante pentru seniori și
-                  servicii de transport pentru grupuri la evenimente speciale.
+                  De-a lungul anilor, datorită profesionalismului și
+                  angajamentului față de calitatea serviciilor, compania a
+                  devenit liderul numărul 1 în Brașov în organizarea excursiilor
+                  dedicate elevilor și activităților educaționale de turism.
                 </p>
                 <p className={styles.aboutText}>
-                  Echipa noastră de ghizi specializați și șoferi profesioniști asigură siguranța și
-                  satisfacția fiecărui pasager. România e fascinantă — și noi suntem aici să o
-                  descoperim împreună cu dumneavoastră.
+                  În timp, am extins direcțiile noastre de lucru pentru a
+                  răspunde cerințelor unei game tot mai variate de călători.
+                  Astăzi, portofoliul nostru include excursii, circuite și
+                  sejururi pentru adulți și seniori, păstrând aceeași valoare
+                  fundamentală care a definit compania încă de la început:
+                  fiecare excursie este însoțită de un ghid profesionist.
+                  Indiferent că este vorba despre elevi, adulți sau seniori, un
+                  ghid dedicat asigură informații de calitate, siguranță și o
+                  experiență completă..
+                </p>
+                <p className={styles.aboutText}>
+                  Un moment important în evoluția companiei l-a reprezentat anul
+                  2019, când ne-am dezvoltat infrastructura prin crearea
+                  propriei flote de autocare. Dispunem acum de vehicule moderne,
+                  conduse de șoferi experimentați, oferind astfel standarde
+                  superioare de confort, siguranță și punctualitate.
+                </p>
+                <p className={styles.aboutText}>
+                  În prezent, <strong>Aventură & Călătorii</strong> oferă o <strong>gamă complexă de servicii turistice:</strong>
+                </p>
+                <ul className={styles.aboutServicesList}>
+                  <li className={styles.aboutServicesItem}>
+                    <GraduationCap size={18} />
+                    excursii și programe educaționale pentru elevi
+                  </li>
+                  <li className={styles.aboutServicesItem}>
+                    <Users size={18} />
+                    excursii, circuite și sejururi pentru grupuri de adulți și seniori
+                  </li>
+                  <li className={styles.aboutServicesItem}>
+                    <Bus size={18} />
+                    închirieri autocare pentru deplasări naționale și internaționale
+                  </li>
+                  <li className={styles.aboutServicesItem}>
+                    <CalendarDays size={18} />
+                    transport pentru evenimente, team-building-uri și activități corporate
+                  </li>
+                </ul>
+                <p className={styles.aboutText}>
+                  Începând cu acest an, ne propunem să adăugăm în portofoliu și organizarea completă
+                  de team-building-uri, precum și programe dedicate turiștilor străini. Ne dorim să
+                  le oferim o <strong>perspectivă autentică asupra României</strong>, punând în valoare
+                  frumusețea simplă și nealterată a satului românesc.
+                </p>
+                <p className={styles.aboutText}>
+                  Cu peste un deceniu de experiență, pasiune și profesionalism, rămânem dedicați
+                  misiunii noastre: <strong>să transformăm fiecare călătorie într-o poveste memorabilă.</strong>
                 </p>
                 <div className={styles.aboutCerts}>
-                  <div className={styles.cert}>
-                    <span className={styles.certIcon}>✓</span>
-                    Licențiați ANPC
-                  </div>
-                  <div className={styles.cert}>
-                    <span className={styles.certIcon}>✓</span>
-                    Asigurați RCA &amp; Călători
-                  </div>
                   <div className={styles.cert}>
                     <span className={styles.certIcon}>✓</span>
                     Ghizi Autorizați
@@ -119,27 +161,31 @@ export default async function HomePage() {
             <div className={styles.whyGrid}>
               {[
                 {
-                  icon: '🏆',
-                  title: 'Experiență',
-                  desc: '15 ani de excursii organizate cu succes. Cunoaștem România de la munte la mare și știm cum să creăm experiențe memorabile.',
+                  icon: "🏆",
+                  title: "Experiență",
+                  desc: "15 ani de excursii organizate cu succes. Cunoaștem România de la munte la mare și știm cum să creăm experiențe memorabile.",
                 },
                 {
-                  icon: '🛋️',
-                  title: 'Confort',
-                  desc: 'Autocare moderne cu aer condiționat, scaune ergonomice, WiFi și dotări premium pentru un drum plăcut indiferent de distanță.',
+                  icon: "🛋️",
+                  title: "Confort",
+                  desc: "Autocare moderne cu aer condiționat, scaune ergonomice, WiFi și dotări premium pentru un drum plăcut indiferent de distanță.",
                 },
                 {
-                  icon: '💰',
-                  title: 'Prețuri Accesibile',
-                  desc: 'Raport calitate-preț excelent. Transparență totală — fără costuri ascunse. Oferte speciale pentru grupuri mari și rezervări anticipate.',
+                  icon: "💰",
+                  title: "Prețuri Accesibile",
+                  desc: "Raport calitate-preț excelent. Transparență totală — fără costuri ascunse. Oferte speciale pentru grupuri mari și rezervări anticipate.",
                 },
                 {
-                  icon: '🛡️',
-                  title: 'Siguranță',
-                  desc: 'Șoferi profesioniști licențiați, vehicule verificate tehnic, asigurare completă pentru pasageri și bagaje pe orice rută.',
+                  icon: "🛡️",
+                  title: "Siguranță",
+                  desc: "Șoferi profesioniști licențiați, vehicule verificate tehnic, asigurare completă pentru pasageri și bagaje pe orice rută.",
                 },
               ].map((item, i) => (
-                <AnimatedSection key={i} delay={i * 0.12} className={styles.whyCard}>
+                <AnimatedSection
+                  key={i}
+                  delay={i * 0.12}
+                  className={styles.whyCard}
+                >
                   <div className={styles.whyIcon}>{item.icon}</div>
                   <h3 className={styles.whyTitle}>{item.title}</h3>
                   <p className={styles.whyDesc}>{item.desc}</p>
@@ -161,30 +207,34 @@ export default async function HomePage() {
             <div className={styles.testimonialsGrid}>
               {[
                 {
-                  name: 'Maria Ionescu',
-                  role: 'Profesor, Brașov',
-                  text: 'Am organizat excursia de sfârșit de an cu clasa prin Aventură și Călătorii și a fost o experiență extraordinară! Ghidul a fost minunat cu elevii, autocarul modern și confortabil, iar prețul foarte accesibil. Recomand cu căldură!',
+                  name: "Maria Ionescu",
+                  role: "Profesor, Brașov",
+                  text: "Am organizat excursia de sfârșit de an cu clasa prin Aventură și Călătorii și a fost o experiență extraordinară! Ghidul a fost minunat cu elevii, autocarul modern și confortabil, iar prețul foarte accesibil. Recomand cu căldură!",
                   rating: 5,
-                  avatar: 'MI',
+                  avatar: "MI",
                 },
                 {
-                  name: 'Gheorghe Popescu',
-                  role: 'Pensionar, Cluj-Napoca',
-                  text: 'Al treilea an consecutiv merg cu grupul de seniori la excursii organizate de această firmă. Totul este perfect organizat, ghizii sunt răbdători și profesioniști, iar locațiile alese sunt superbe. Ne simțim în siguranță și bine îngrijiți.',
+                  name: "Gheorghe Popescu",
+                  role: "Pensionar, Cluj-Napoca",
+                  text: "Al treilea an consecutiv merg cu grupul de seniori la excursii organizate de această firmă. Totul este perfect organizat, ghizii sunt răbdători și profesioniști, iar locațiile alese sunt superbe. Ne simțim în siguranță și bine îngrijiți.",
                   rating: 5,
-                  avatar: 'GP',
+                  avatar: "GP",
                 },
                 {
-                  name: 'Ana & Mihai Dumitrescu',
-                  role: 'Clienți fideli',
-                  text: 'Am închiriat autocarul pentru nunta noastră — transport pentru 45 de invitați din Brașov la Sinaia. Totul a decurs impecabil: punctualitate, curățenie, șofer elegant și profesionist. Mulțumim din suflet!',
+                  name: "Ana & Mihai Dumitrescu",
+                  role: "Clienți fideli",
+                  text: "Am închiriat autocarul pentru nunta noastră — transport pentru 45 de invitați din Brașov la Sinaia. Totul a decurs impecabil: punctualitate, curățenie, șofer elegant și profesionist. Mulțumim din suflet!",
                   rating: 5,
-                  avatar: 'AD',
+                  avatar: "AD",
                 },
               ].map((t, i) => (
-                <AnimatedSection key={i} delay={i * 0.15} className={styles.testimonialCard}>
+                <AnimatedSection
+                  key={i}
+                  delay={i * 0.15}
+                  className={styles.testimonialCard}
+                >
                   <div className={styles.testimonialStars}>
-                    {'★'.repeat(t.rating)}
+                    {"★".repeat(t.rating)}
                   </div>
                   <p className={styles.testimonialText}>"{t.text}"</p>
                   <div className={styles.testimonialAuthor}>
@@ -208,7 +258,8 @@ export default async function HomePage() {
                 <div className={styles.aboutLine} />
                 <h2 className={styles.contactTitle}>Contactează-ne</h2>
                 <p className={styles.contactSubtitle}>
-                  Ai întrebări sau vrei să rezervi o excursie? Suntem disponibili să te ajutăm!
+                  Ai întrebări sau vrei să rezervi o excursie? Suntem
+                  disponibili să te ajutăm!
                 </p>
                 <div className={styles.contactDetails}>
                   <div className={styles.contactDetail}>
@@ -222,14 +273,20 @@ export default async function HomePage() {
                     <span className={styles.contactDetailIcon}>📞</span>
                     <div>
                       <strong>Telefon</strong>
-                      <p><a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a></p>
+                      <p>
+                        <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>
+                          {contact.phone}
+                        </a>
+                      </p>
                     </div>
                   </div>
                   <div className={styles.contactDetail}>
                     <span className={styles.contactDetailIcon}>✉️</span>
                     <div>
                       <strong>Email</strong>
-                      <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+                      <p>
+                        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                      </p>
                     </div>
                   </div>
                   <div className={styles.contactDetail}>
@@ -247,7 +304,10 @@ export default async function HomePage() {
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.2} className={styles.contactFormWrapper}>
+              <AnimatedSection
+                delay={0.2}
+                className={styles.contactFormWrapper}
+              >
                 <div className={styles.contactForm}>
                   <h3 className={styles.formTitle}>Trimite-ne un Mesaj</h3>
                   <ContactForm />

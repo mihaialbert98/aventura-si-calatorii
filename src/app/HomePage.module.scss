@@ -135,6 +135,30 @@
   }
 }
 
+.aboutServicesList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aboutServicesItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: v.$text-secondary;
+  font-weight: 300;
+  line-height: 1.55;
+
+  svg {
+    flex-shrink: 0;
+    color: v.$accent;
+  }
+}
+
 .aboutCerts {
   display: flex;
   flex-wrap: wrap;
